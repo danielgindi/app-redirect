@@ -1,0 +1,32 @@
+html, body {
+	min-height: 100%;
+	background: #084f70;
+	font-family: "Helvetica Neue","Helvetica",Arial,sans-serif;
+	font-weight: 100;
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+body {
+	padding: 20px;
+}
+
+.title {
+	font-size: 18px;
+}
+
+.subtitle {
+	font-size: 16px;
+	margin: 20px 0;
+}
+
+.note {
+	font-style: italic;
+	font-size: 14px;
+}
+
+b {
+	font-weight: 300;
+}

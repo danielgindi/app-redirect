@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script type="text/javascript" src="resources/js/redirect.js"></script>
+        <link rel="stylesheet" type="text/css" href="resources/css/default.css" />
+    </head>
+<body>
+    <div class="title">
+        This is an example of an automatic redirect to the native app OR to the App Store / Play Store.
+    </div>
+    <div class="subtitle">
+        Redirecting to: Twitter app.
+    </div>
+    <div class="note">
+        NOTE: In Chrome for Android, if the user writes the url manually, it assumes that he does <b>not</b> wish to be redirected outside of the browser. So you want to be redirected to this link or have clicked a link to this url.
+    </div>
+    <script>
+
+    // You have the whole queryString ready for you here in a key->value form.
+    // In the edge case where there are multiple values, the value is an array.
+    var qs = AppRedirect.queryString;
+
+    // Here we initiate the redirect process
+    AppRedirect.redirect({
+
+        iosApp: 'twitter://post?message=' + qs['message'],
+
+        iosAppStore: 'https://itunes.apple.com/il/app/twitter/id333903271?mt=8&message=' + qs['message'],
+
+        // For this, your app need to have category filter: android.intent.category.BROWSABLE
+        android: {
+            'host': 'post/?message=' + encodeURIComponent(qs['message']), // Host/path/querystring part in a custom scheme URL
+            // 'action': '', // Equivalent to ACTION in INTENTs
+            // 'category': '', // Equivalent to CATEGORY in INTENTs
+            // 'component': '', // Equivalent to COMPONENT in INTENTs
+            'scheme': 'twitter', // Scheme part in a custom scheme URL
+            'package': 'com.twitter.android', // Package name in Play store
+            'fallback': 'https://play.google.com/store/apps/details?id=com.twitter.android&hl=en&message=' + qs['message']
+        }
+
+    });
+
+    </script>
+</body>
+</html>
