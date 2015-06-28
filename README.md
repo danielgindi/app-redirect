@@ -31,6 +31,9 @@ This is an example of how it will work for Twitter app:
     
 ```
 
+Of course you want to style the HTML as a nice landing page, and maybe with a logo and styled links as a last-resort fallback.
+
+
 The flow on iOS:
 ---
 
