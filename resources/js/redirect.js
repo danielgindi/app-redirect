@@ -41,6 +41,7 @@
 
             var hasIos = !!(options.iosApp || options.iosAppStore);
             var hasAndroid = !!(options.android);
+            var hasOverallFallback = !!(options.overallFallback);
 
             /**
             * What happens now is:
@@ -125,8 +126,10 @@
                     window.location = intentUrl;
                 }
 
+            } else if(hasOverallFallback) {
+                window.location = options.overallFallback;
             } else {
-                console.log('Unknown platform, nothing to do');
+                console.log('Unknown platform and no overallFallback URL, nothing to do');
             }
 
         }

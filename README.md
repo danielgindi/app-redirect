@@ -25,7 +25,10 @@ This is an example of how it will work for Twitter app: ([Click here to try](htt
             'scheme': 'twitter', // Scheme part in a custom scheme URL
             'package': 'com.twitter.android', // Package name in Play store
             'fallback': 'https://play.google.com/store/apps/details?id=com.twitter.android&hl=en&message=' + qs['message']
-        }
+        },
+
+        // After not recognizing any iOS or Android, you can set an overall Fallback like this. Maybe used for general app information on kinda landingpage
+        overallFallback: 'https://twitter.com/settings/download?lang=de'
 
     });
     
@@ -52,3 +55,8 @@ Using a special Intent url, we can ask the system to open the app and fallback t
   * `fallback` url does not have to be specified, as the Android will use `package` to find the Play Store page, but it can be specified as an alternative fallback, especially if `package` is ommited.
   * `package` does not have to be specified, but then you should specify `fallback`.
   * **Note** that in Chrome for Android, if the user writes the url manually, it assumes that he does <b>not</b> wish to be redirected outside of the browser. So you want to be redirected to this link or have clicked a link to this url.
+
+The flow on 'unknown Platform'
+---
+
+If option `overallFallback` is set with an URL it redirects immediately there
